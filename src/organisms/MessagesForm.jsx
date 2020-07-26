@@ -1,5 +1,4 @@
 import React from 'react';
-import Progress from "../atoms/Progress/Progress";
 import {useMutation, useQuery} from '@apollo/react-hooks';
 import MessageList from "../molecules/MessageList/MessageList";
 import {GET_MESSAGES} from "../graphql/query/getMessages";
@@ -11,7 +10,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 function MessagesForm() {
     const { loading, error, data, subscribeToMore } = useQuery(GET_MESSAGES);
 
-    const [addMessageMutation, addMessageMutationResult] = useMutation(ADD_MESSAGES);
+    const [addMessageMutation] = useMutation(ADD_MESSAGES);
 
     if(loading){
         return <CircularProgress/>
